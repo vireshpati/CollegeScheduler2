@@ -8,24 +8,28 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.example.collegescheduler2.databinding.FragmentHomeBinding;
+
+import com.example.collegescheduler2.R;
+import com.example.collegescheduler2.databinding.FragmentCoursesBinding;
+
 
 public class CoursesFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentCoursesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        CoursesViewModel coursesViewModel =
-                new ViewModelProvider(this).get(CoursesViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+
+        binding = FragmentCoursesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
         final TextView textView = binding.textHome;
-        coursesViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+//        View root = inflater.inflate(R.layout.fragment_courses,container,false);
+//        final TextView textView = root.findViewById(R.id.text_home);
+
+
         return root;
     }
 

@@ -10,18 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.collegescheduler2.databinding.FragmentSlideshowBinding;
+import com.example.collegescheduler2.databinding.FragmentExamsBinding;
+
 
 public class ExamsFragment extends Fragment {
 
-    private FragmentSlideshowBinding binding;
+    private FragmentExamsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         ExamsViewModel examsViewModel =
                 new ViewModelProvider(this).get(ExamsViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentExamsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textSlideshow;

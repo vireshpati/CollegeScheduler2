@@ -10,18 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.collegescheduler2.databinding.FragmentGalleryBinding;
+import com.example.collegescheduler2.databinding.FragmentAssignmentsBinding;
+
 
 public class AssignmentsFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentAssignmentsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         AssignmentsViewModel assignmentsViewModel =
                 new ViewModelProvider(this).get(AssignmentsViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentAssignmentsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textGallery;

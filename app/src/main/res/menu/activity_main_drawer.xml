@@ -7,15 +7,15 @@
         <item
             android:id="@+id/nav_courses"
             android:icon="@drawable/outline_collections_bookmark_24"
-            android:title="@string/menu_home" />
+            android:title="@string/menu_courses" />
         <item
             android:id="@+id/nav_assignments"
             android:icon="@drawable/baseline_assessment_24"
-            android:title="@string/menu_gallery" />
+            android:title="@string/menu_assignments" />
         <item
             android:id="@+id/nav_exams"
             android:icon="@drawable/sharp_checkbook_24"
-            android:title="@string/menu_slideshow" />
+            android:title="@string/menu_exams" />
         <item
             android:id="@+id/nav_to_do_list"
             android:icon="@drawable/sharp_add_notes_24"
