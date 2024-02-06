@@ -44,7 +44,7 @@ public class Course extends ScheduleItem {
     public String toString() {
         return "Course: " + getName() +
                 "\nInstructor: " + instructor  +
-                "\nDate: " +getDate() + '\n';
+                "\nDate: " +getDate().toGMTString() + '\n';
     }
 
 }
