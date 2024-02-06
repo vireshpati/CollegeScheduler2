@@ -16,16 +16,12 @@ import com.example.collegescheduler2.Course;
 import com.example.collegescheduler2.R;
 import com.example.collegescheduler2.ui.CustomAdapter;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class CoursesFragment extends Fragment {
 
-    private RecyclerView recyclerView;
     private ArrayList<Course> courses;
-
-    private Button button;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -36,7 +32,7 @@ public class CoursesFragment extends Fragment {
 
         courses.add(new Course("English", new Date(0, 1, 1), "John"));
 
-        recyclerView = view.findViewById(R.id.recyclerview);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         CustomAdapter adapter = new CustomAdapter(courses);
@@ -45,12 +41,9 @@ public class CoursesFragment extends Fragment {
         ItemTouchHelper helper = new ItemTouchHelper(swipeToDelete(adapter));
         helper.attachToRecyclerView(recyclerView);
 
-        button = view.findViewById(R.id.addCourseButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        Button button = view.findViewById(R.id.addCourseButton);
+        button.setOnClickListener(v -> {
 
-            }
         });
 
         return view;
