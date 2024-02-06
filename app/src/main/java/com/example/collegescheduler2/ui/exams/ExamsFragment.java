@@ -10,17 +10,24 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.collegescheduler2.Course;
 import com.example.collegescheduler2.databinding.FragmentExamsBinding;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 
 public class ExamsFragment extends Fragment {
+    private ArrayList<Course> Exams;
 
     private FragmentExamsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ExamsViewModel examsViewModel =
-                new ViewModelProvider(this).get(ExamsViewModel.class);
+        ExamsViewModel examsViewModel = new ViewModelProvider(this).get(ExamsViewModel.class);
+
+        Exams = new ArrayList<>();
+        Exams.add(new exam("English", new Date(0, 1, 1), "John"));
 
         binding = FragmentExamsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
