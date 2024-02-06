@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="wrap_content"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    android:layout_margin="8dp">-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/randomText"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        tools:text="temp" />-->
-
-<!--</FrameLayout>-->
 <LinearLayout
 xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
@@ -26,7 +14,7 @@ android:background="@drawable/rounded_background">
     android:layout_height="wrap_content"
     android:textSize="14sp"
     android:textColor="@android:color/black"
-    android:text="Sample Text" />
+    android:text="@string/filler" />
 
 <View
     android:layout_width="match_parent"

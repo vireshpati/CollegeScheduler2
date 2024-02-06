@@ -20,4 +20,17 @@
     <string name="add_exam">Add Exam</string>
     <string name="exam_title">Exam Title</string>
     <string name="exam_location">Exam Location</string>
+    <string name="title">Title</string>
+    <string name="name_course_location">Name/Course/Location</string>
+    <string name="titleLabel">Title</string>
+    <string name="instructor_course_location">Instructor/course/location</string>
+    <string name="sample_text">Sample Text</string>
+    <string name="filler">Sample Text</string>
+    <string name="add_list">Add List</string>
+    <string name="list_title">List Title</string>
+    <string name="add_assignment">Add Assignment</string>
+    <string name="assignment_title">Assignment Title</string>
+    <string name="associated_course">Associated Course</string>
+    <string name="sortbydate">SortByDate</string>
+    <string name="add_to_list">Add To List</string>
 </resources>

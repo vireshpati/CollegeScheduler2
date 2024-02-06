@@ -1,6 +1,5 @@
-package com.example.collegescheduler2.ui.courses;
+package com.example.collegescheduler2.ui;
 
-import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,15 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
-
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.collegescheduler2.Course;
+import com.example.collegescheduler2.Exam;
 import com.example.collegescheduler2.R;
-import com.example.collegescheduler2.ui.CustomAdapter;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,22 +22,22 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 
-public class CoursesFragment extends Fragment {
+public class ExamsFragment extends Fragment {
 
-    private static ArrayList<Course> courses = new ArrayList<>();
-    private CustomAdapter<Course> adapter;
+    private static ArrayList<Exam> exams = new ArrayList<>();
+    private CustomAdapter<Exam> adapter;
     private View view;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_courses, container, false);
+        view = inflater.inflate(R.layout.fragment_exams, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        adapter = new CustomAdapter<>(courses);
+        adapter = new CustomAdapter<>(exams);
         recyclerView.setAdapter(adapter);
 
         ItemTouchHelper helper1 = new ItemTouchHelper(swipeLeft());
@@ -53,17 +50,15 @@ public class CoursesFragment extends Fragment {
 
         button.setOnClickListener(v -> {
 
-                courses.add(newCourseFromTextFields());
-                courses.sort(comparator);
-                adapter.notifyDataSetChanged();
+            exams.add(newExamFromTextFields());
+            exams.sort(Comparator.naturalOrder());
+            adapter.notifyDataSetChanged();
         });
-
 
 
         return view;
 
     }
-
 
     @Override
     public void onDestroyView() {
@@ -80,14 +75,12 @@ public class CoursesFragment extends Fragment {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
-                courses.remove(viewHolder.getAdapterPosition());
-                courses.sort(comparator);
+                exams.remove(viewHolder.getAdapterPosition());
+                exams.sort(Comparator.naturalOrder());
                 adapter.notifyDataSetChanged();
             }
-
         };
     }
-
 
     private ItemTouchHelper.SimpleCallback swipeRight() {
         return new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
@@ -99,16 +92,16 @@ public class CoursesFragment extends Fragment {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
-                Course oldCourse = courses.get(viewHolder.getAdapterPosition());
-                String name = ((EditText) view.findViewById(R.id.instructorNameField)).getText().toString();
+                Exam oldExam = exams.get(viewHolder.getAdapterPosition());
+                String location = ((EditText) view.findViewById(R.id.instructorNameField)).getText().toString();
                 String date = ((EditText) view.findViewById(R.id.dateField)).getText().toString();
                 String title = ((EditText) view.findViewById(R.id.courseTitleField)).getText().toString();
-                if(name.length() == 0) {
-                    name = oldCourse.getInstructor();
+                if (location.length() == 0) {
+                    location = oldExam.getLocation();
                 }
                 Date d;
-                if(date.length() == 0) {
-                    d = oldCourse.getDate();
+                if (date.length() == 0) {
+                    d = oldExam.getDate();
                 } else {
                     try {
                         d = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(date);
@@ -117,31 +110,28 @@ public class CoursesFragment extends Fragment {
 
                     }
                 }
-                if(title.length() == 0) {
-                    title = oldCourse.getName();
+                if (title.length() == 0) {
+                    title = oldExam.getName();
                 }
 
-                courses.set(viewHolder.getAdapterPosition(), new Course(title, d, name));
-                courses.sort(comparator);
+                exams.set(viewHolder.getAdapterPosition(), new Exam(title, d, location));
+                exams.sort(Comparator.naturalOrder());
                 adapter.notifyDataSetChanged();
 
             }
         };
     }
 
-    private Course newCourseFromTextFields() {
+    private Exam newExamFromTextFields() {
         String title = ((EditText) view.findViewById(R.id.courseTitleField)).getText().toString();
         String name = ((EditText) view.findViewById(R.id.instructorNameField)).getText().toString();
         String date = ((EditText) view.findViewById(R.id.dateField)).getText().toString();
         try {
-            return new Course(title, new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(date), name);
-        }
-        catch (ParseException e) {
+            return new Exam(title, new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(date), name);
+        } catch (ParseException e) {
             return null;
         }
     }
-
-    private Comparator<Course> comparator = (o1, o2) -> o1.getName().compareTo(o2.getName());
 
 
 }

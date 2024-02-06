@@ -47,4 +47,10 @@ public class Course extends ScheduleItem {
                 "\nDate: " +getDate().toGMTString() + '\n';
     }
 
+    public String genericString() {
+        return "Title: " + getName() +
+                "\nNotes: " + instructor +
+                "\nDate: " + getDate().toGMTString() + '\n';
+    }
+
 }

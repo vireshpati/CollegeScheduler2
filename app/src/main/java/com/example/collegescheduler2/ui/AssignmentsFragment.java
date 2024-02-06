@@ -1,11 +1,10 @@
-package com.example.collegescheduler2.ui.assignments;
+package com.example.collegescheduler2.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 
@@ -17,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.collegescheduler2.Assignment;
 import com.example.collegescheduler2.R;
-import com.example.collegescheduler2.ui.CustomAdapter;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -50,13 +48,10 @@ public class AssignmentsFragment extends Fragment {
         helper2.attachToRecyclerView(recyclerView);
 
         Switch sortSwitch = (Switch) view.findViewById(R.id.switch1);
-        sortSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                sortByClass = !sortByClass;
-                assignments.sort(getComparator());
-                adapter.notifyDataSetChanged();
-            }
+        sortSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            sortByClass = !sortByClass;
+            assignments.sort(getComparator());
+            adapter.notifyDataSetChanged();
         });
 
         Button button = (Button) view.findViewById(R.id.addCourseButton);

@@ -7,28 +7,30 @@
 
     <fragment
         android:id="@+id/nav_notifications"
-        android:name="com.example.collegescheduler2.ui.notifications.NotificationFragment"
+        android:name="com.example.collegescheduler2.ui.NotificationFragment"
         android:label="@string/menu_notifications" />
     <fragment
         android:id="@+id/nav_courses"
-        android:name="com.example.collegescheduler2.ui.courses.CoursesFragment"
+        android:name="com.example.collegescheduler2.ui.CoursesFragment"
         android:label="@string/menu_courses"
         tools:layout="@layout/fragment_courses" />
 
     <fragment
         android:id="@+id/nav_assignments"
-        android:name="com.example.collegescheduler2.ui.assignments.AssignmentsFragment"
+        android:name="com.example.collegescheduler2.ui.AssignmentsFragment"
         android:label="@string/menu_assignments"
         tools:layout="@layout/fragment_assignments" />
 
     <fragment
         android:id="@+id/nav_to_do_list"
-        android:name="com.example.collegescheduler2.ui.to_do_list.ToDoListFragment"
+        android:name="com.example.collegescheduler2.ui.ToDoListFragment"
         android:label="@string/menu_to_do_list"
-        tools:layout="@layout/fragment_to_do_list" />
+        tools:layout="@layout/fragment_to_do_list" >
+        <argument android:name="toDoListArg" />
+    </fragment>
     <fragment
         android:id="@+id/nav_exams"
-        android:name="com.example.collegescheduler2.ui.exams.ExamsFragment"
+        android:name="com.example.collegescheduler2.ui.ExamsFragment"
         android:label="@string/menu_exams"
         tools:layout="@layout/fragment_exams" />
 </navigation>

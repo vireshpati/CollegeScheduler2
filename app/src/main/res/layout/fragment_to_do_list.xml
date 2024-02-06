@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.courses.CoursesFragment">
+    tools:context=".ui.CoursesFragment">
 
 
     <Button
@@ -14,7 +14,7 @@
         android:layout_marginStart="346dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:text="Add List"
+        android:text="@string/add_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="199dp"
         android:ems="10"
-        android:hint="List Title"
+        android:hint="@string/list_title"
         android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"

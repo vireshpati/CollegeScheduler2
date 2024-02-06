@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 
 public class ToDoList extends ScheduleItem {
@@ -56,10 +57,20 @@ public class ToDoList extends ScheduleItem {
         toDoList.set(index, s);
     }
 
+
+
     @NonNull
     @Override
     public String toString() {
         return getName();
     }
 
+    public void sort() {
+        toDoList.sort(Comparator.naturalOrder());
+
+    }
+
+    public ScheduleItem removeItem(int index) {
+       return toDoList.remove(index);
+    }
 }

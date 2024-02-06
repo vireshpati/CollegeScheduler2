@@ -1,6 +1,5 @@
-package com.example.collegescheduler2.ui.to_do_list;
+package com.example.collegescheduler2.ui;
 
-import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,29 +15,29 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.collegescheduler2.Course;
 import com.example.collegescheduler2.R;
-import com.example.collegescheduler2.ToDoList;
-import com.example.collegescheduler2.ui.CustomAdapter;
-import com.example.collegescheduler2.ui.ToDoListCustomAdapter;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 
-public class ToDoListFragment extends Fragment {
+public class CoursesFragment extends Fragment {
 
-    private static ArrayList<ToDoList> toDoLists = new ArrayList<>();
-    private ToDoListCustomAdapter<ToDoList> adapter;
+    private static ArrayList<Course> courses = new ArrayList<>();
+    private CustomAdapter<Course> adapter;
     private View view;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_to_do_list, container, false);
+        view = inflater.inflate(R.layout.fragment_courses, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        adapter = new ToDoListCustomAdapter<>(toDoLists);
+        adapter = new CustomAdapter<>(courses);
         recyclerView.setAdapter(adapter);
 
         ItemTouchHelper helper1 = new ItemTouchHelper(swipeLeft());
@@ -51,8 +50,8 @@ public class ToDoListFragment extends Fragment {
 
         button.setOnClickListener(v -> {
 
-            toDoLists.add(new ToDoList(((EditText) view.findViewById(R.id.courseTitleField)).getText().toString(), new Date()));
-            toDoLists.sort(Comparator.reverseOrder());
+            courses.add(newCourseFromTextFields());
+            courses.sort(comparator);
             adapter.notifyDataSetChanged();
         });
 
@@ -76,13 +75,15 @@ public class ToDoListFragment extends Fragment {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                toDoLists.remove(viewHolder.getAdapterPosition());
-                toDoLists.sort(Comparator.reverseOrder());
+
+                courses.remove(viewHolder.getAdapterPosition());
+                courses.sort(comparator);
                 adapter.notifyDataSetChanged();
             }
 
         };
     }
+
 
     private ItemTouchHelper.SimpleCallback swipeRight() {
         return new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
@@ -94,20 +95,48 @@ public class ToDoListFragment extends Fragment {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
-                ToDoList oldToDoList = toDoLists.get(viewHolder.getAdapterPosition());
+                Course oldCourse = courses.get(viewHolder.getAdapterPosition());
+                String name = ((EditText) view.findViewById(R.id.instructorNameField)).getText().toString();
+                String date = ((EditText) view.findViewById(R.id.dateField)).getText().toString();
                 String title = ((EditText) view.findViewById(R.id.courseTitleField)).getText().toString();
+                if (name.length() == 0) {
+                    name = oldCourse.getInstructor();
+                }
+                Date d;
+                if (date.length() == 0) {
+                    d = oldCourse.getDate();
+                } else {
+                    try {
+                        d = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(date);
+                    } catch (ParseException e) {
+                        d = new Date();
 
+                    }
+                }
                 if (title.length() == 0) {
-                    title = oldToDoList.getName();
+                    title = oldCourse.getName();
                 }
 
-                toDoLists.set(viewHolder.getAdapterPosition(), new ToDoList(title, new Date()));
-                toDoLists.sort(Comparator.reverseOrder());
+                courses.set(viewHolder.getAdapterPosition(), new Course(title, d, name));
+                courses.sort(comparator);
                 adapter.notifyDataSetChanged();
 
             }
         };
     }
+
+    private Course newCourseFromTextFields() {
+        String title = ((EditText) view.findViewById(R.id.courseTitleField)).getText().toString();
+        String name = ((EditText) view.findViewById(R.id.instructorNameField)).getText().toString();
+        String date = ((EditText) view.findViewById(R.id.dateField)).getText().toString();
+        try {
+            return new Course(title, new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(date), name);
+        } catch (ParseException e) {
+            return null;
+        }
+    }
+
+    private Comparator<Course> comparator = (o1, o2) -> o1.getName().compareTo(o2.getName());
 
 
 }

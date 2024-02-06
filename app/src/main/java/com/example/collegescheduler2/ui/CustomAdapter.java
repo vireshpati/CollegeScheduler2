@@ -18,7 +18,6 @@ public class CustomAdapter<T extends ScheduleItem> extends RecyclerView.Adapter<
     private ArrayList<T> data;
 
 
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView textView;
 
@@ -38,7 +37,6 @@ public class CustomAdapter<T extends ScheduleItem> extends RecyclerView.Adapter<
     public CustomAdapter(ArrayList<T> data) {
         this.data = data;
     }
-
 
 
     @NonNull

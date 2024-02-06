@@ -26,13 +26,6 @@ public class ToDoListCustomAdapter<T extends ScheduleItem> extends RecyclerView.
             super(view);
             textView = view.findViewById(R.id.randomText);
 
-            view.findViewById(R.id.listViewButton).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                }
-            });
-
         }
 
         public TextView getTextView() {
@@ -50,7 +43,7 @@ public class ToDoListCustomAdapter<T extends ScheduleItem> extends RecyclerView.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.frame_textview_with_button, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.frame_textview_with_drop, viewGroup, false);
         return new ViewHolder(view);
     }
 
