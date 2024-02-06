@@ -2,15 +2,16 @@ package com.example.collegescheduler2;
 
 import androidx.annotation.NonNull;
 
-import com.example.collegescheduler2.ScheduleItem;
 
 import java.util.ArrayList;
+import java.util.Date;
 
-public class ToDoList implements Comparable<ToDoList>{
+public class ToDoList extends ScheduleItem {
 
     private ArrayList<ScheduleItem> toDoList;
 
-    public ToDoList() {
+    public ToDoList(String name, Date date) {
+        super(name, new Date());
         toDoList = new ArrayList<>();
     }
 
@@ -58,13 +59,7 @@ public class ToDoList implements Comparable<ToDoList>{
     @NonNull
     @Override
     public String toString() {
-        return "ToDoList{" +
-                "toDoList=" + toDoList.toString() +
-                '}';
+        return getName();
     }
 
-    @Override
-    public int compareTo(ToDoList o) {
-        return 0;
-    }
 }

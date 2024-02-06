@@ -116,7 +116,7 @@ public class ExamsFragment extends Fragment {
                 }
 
                 exams.set(viewHolder.getAdapterPosition(), new Exam(title, d, location));
-                exams.sort(comparator);
+                exams.sort(Comparator.naturalOrder());
                 adapter.notifyDataSetChanged();
 
             }
@@ -133,8 +133,6 @@ public class ExamsFragment extends Fragment {
             return null;
         }
     }
-
-    private Comparator<Exam> comparator = Comparator.naturalOrder();
 
 
 }

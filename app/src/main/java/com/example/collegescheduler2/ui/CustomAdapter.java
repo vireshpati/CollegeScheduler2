@@ -19,7 +19,7 @@ import java.util.Comparator;
 public class CustomAdapter<T extends ScheduleItem> extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
     private ArrayList<T> data;
-    private Comparator<T> comparator;
+
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -37,15 +37,12 @@ public class CustomAdapter<T extends ScheduleItem> extends RecyclerView.Adapter<
         }
     }
 
-    public CustomAdapter(ArrayList<T> data, Comparator<T> comparator) {
-        this.data = data;
-        this.comparator = comparator;
-    }
 
     public CustomAdapter(ArrayList<T> data) {
         this.data = data;
-        this.comparator = naturalOrder();
     }
+
+
 
     @NonNull
     @Override
