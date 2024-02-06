@@ -3,21 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_courses">
 
     <fragment
         android:id="@+id/nav_notifications"
         android:name="com.example.collegescheduler2.ui.notifications.NotificationFragment"
         android:label="@string/menu_notifications" />
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.collegescheduler2.ui.home.HomeFragment"
+        android:id="@+id/nav_courses"
+        android:name="com.example.collegescheduler2.ui.courses.CoursesFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.collegescheduler2.ui.gallery.GalleryFragment"
+        android:id="@+id/nav_assignments"
+        android:name="com.example.collegescheduler2.ui.assignments.AssignmentsFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
@@ -27,8 +27,8 @@
         android:label="@string/menu_to_do_list"
         tools:layout="@layout/fragment_to_do_list" />
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.collegescheduler2.ui.slideshow.SlideshowFragment"
+        android:id="@+id/nav_exams"
+        android:name="com.example.collegescheduler2.ui.exams.ExamsFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
 </navigation>

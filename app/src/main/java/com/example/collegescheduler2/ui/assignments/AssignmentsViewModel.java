@@ -1,16 +1,17 @@
-package com.example.collegescheduler2.ui.slideshow;
+package com.example.collegescheduler2.ui.assignments;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class AssignmentsViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+
+    public AssignmentsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is assignments fragment");
     }
 
     public LiveData<String> getText() {

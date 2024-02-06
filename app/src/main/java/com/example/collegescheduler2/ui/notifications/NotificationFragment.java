@@ -11,8 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.collegescheduler2.databinding.FragmentNotificationBinding;
-import com.example.collegescheduler2.databinding.FragmentSlideshowBinding;
-import com.example.collegescheduler2.ui.slideshow.SlideshowViewModel;
 
 public class NotificationFragment extends Fragment {
 
