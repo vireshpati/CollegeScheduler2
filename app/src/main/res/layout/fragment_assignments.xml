@@ -19,4 +19,55 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Assignment_title"
+        android:layout_width="366dp"
+        android:layout_height="32dp"
+        android:text="Assignment Title:"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="50dp" />
+
+    <Button
+        android:id="@+id/Assign_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Assignment"
+        tools:layout_editor_absoluteX="121dp"
+        tools:layout_editor_absoluteY="162dp" />
+
+    <TextView
+        android:id="@+id/Assignment_class"
+        android:layout_width="362dp"
+        android:layout_height="33dp"
+        android:text="Class:"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="117dp" />
+
+    <TextView
+        android:id="@+id/Assignment_due"
+        android:layout_width="362dp"
+        android:layout_height="35dp"
+        android:text="Assignment Due Date:"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="82dp" />
+
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="201dp"
+        android:layout_height="29dp"
+        android:text="Upcoming Assignments"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="17dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="373dp"
+        android:layout_height="489dp"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="241dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

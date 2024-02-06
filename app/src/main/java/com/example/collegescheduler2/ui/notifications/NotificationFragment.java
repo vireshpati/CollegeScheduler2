@@ -15,17 +15,24 @@ import com.example.collegescheduler2.databinding.FragmentNotificationBinding;
 public class NotificationFragment extends Fragment {
 
     private FragmentNotificationBinding binding;
+    private NotificationViewModel notificationViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationViewModel notificationViewModel =
-                new ViewModelProvider(this).get(NotificationViewModel.class);
+        notificationViewModel = new ViewModelProvider(this).get(NotificationViewModel.class);
 
         binding = FragmentNotificationBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotification;
-        notificationViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.notificationText;
+        notificationViewModel.getNotificationContent().observe(getViewLifecycleOwner(), textView::setText);
+
+        // Trigger notification (for example, on button click)
+        binding.textNotification.setOnClickListener(view -> {
+            notificationViewModel.setNotificationContent("New Notification!");
+            // Here you can also use NotificationManager to show system notification
+        });
+
         return root;
     }
 
