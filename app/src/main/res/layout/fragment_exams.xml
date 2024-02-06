@@ -36,6 +36,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="199dp"
         android:ems="10"
+        android:textSize="20dp"
         android:hint="Exam name"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,6 +56,7 @@
         android:layout_height="24dp"
         android:layout_marginStart="8dp"
         android:ems="10"
+        android:textSize="20dp"
         android:hint="Exam Date"
         android:inputType="text"
         android:minHeight="48dp"
@@ -63,9 +65,10 @@
 
     <TextView
         android:id="@+id/Exam_class"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="164dp"
+        android:layout_height="30dp"
         android:ems="10"
+        android:textSize="20dp"
         android:hint="Exam CLass"
         android:inputType="date"
         app:layout_constraintTop_toBottomOf="@+id/exam_date"
