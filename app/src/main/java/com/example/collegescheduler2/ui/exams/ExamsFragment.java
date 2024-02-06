@@ -29,7 +29,7 @@ public class ExamsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_exams, container, false);
 
         Exams = new ArrayList<>();
-        Exams.add(new Exam("English", new Date(0, 1, 1), "John"));
+       // Exams.add(new Exam("English", new Date(0, 1, 1), "John"));
 
         binding = FragmentExamsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

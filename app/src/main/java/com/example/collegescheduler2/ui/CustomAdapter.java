@@ -1,5 +1,7 @@
 package com.example.collegescheduler2.ui;
 
+import static java.util.Comparator.naturalOrder;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,14 +10,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.collegescheduler2.Course;
 import com.example.collegescheduler2.R;
+import com.example.collegescheduler2.ScheduleItem;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
-public class CustomAdapter<T> extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
+public class CustomAdapter<T extends ScheduleItem> extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
     private ArrayList<T> data;
+    private Comparator<T> comparator;
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -33,10 +37,14 @@ public class CustomAdapter<T> extends RecyclerView.Adapter<CustomAdapter.ViewHol
         }
     }
 
-    public CustomAdapter(ArrayList<T> data) {
-
+    public CustomAdapter(ArrayList<T> data, Comparator<T> comparator) {
         this.data = data;
+        this.comparator = comparator;
+    }
 
+    public CustomAdapter(ArrayList<T> data) {
+        this.data = data;
+        this.comparator = naturalOrder();
     }
 
     @NonNull

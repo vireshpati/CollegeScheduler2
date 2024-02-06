@@ -25,23 +25,23 @@
         android:layout_width="404dp"
         android:layout_height="599dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="150dp"
         android:layout_marginEnd="16dp"
-        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/dateField" />
+
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/courseTitleField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="199dp"
         android:ems="10"
+        android:minHeight="48dp"
         android:hint="@string/course_title"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,32 +49,34 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/instructorNameField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="31dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="199dp"
         android:ems="10"
         android:hint="@string/instructor_name"
         android:inputType="text"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toStartOf="@+id/addCourseButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintTop_toBottomOf="@+id/courseTitleField" />
 
     <EditText
-        android:id="@+id/editTextDate3"
+        android:id="@+id/dateField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="199dp"
         android:ems="10"
         android:hint="@string/dd_mm_yyyy_hh_mm_ss"
-        android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerview"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+        app:layout_constraintTop_toBottomOf="@+id/instructorNameField" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
