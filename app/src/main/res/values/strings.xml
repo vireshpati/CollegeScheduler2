@@ -12,5 +12,8 @@
     <string name="menu_exams">Exams</string>
     <string name="menu_to_do_list">To Do Lists</string>
     <string name="menu_notifications">Notifications</string>
-    <string name="addItem">+</string>
+    <string name="addItem">Add Course</string>
+    <string name="e_dd_mmm_yyyy_hh_mm_ss">E, DD-MMM-YYYY, HH:MM:SS</string>
+    <string name="course_title">Course Title</string>
+    <string name="instructor_name">Instructor Name</string>
 </resources>

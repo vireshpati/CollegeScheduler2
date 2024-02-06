@@ -17,7 +17,6 @@ import com.example.collegescheduler2.R;
 import com.example.collegescheduler2.ui.CustomAdapter;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class CoursesFragment extends Fragment {
 
@@ -30,12 +29,10 @@ public class CoursesFragment extends Fragment {
 
         courses = new ArrayList<>();
 
-        courses.add(new Course("English", new Date(0, 1, 1), "John"));
-
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        CustomAdapter adapter = new CustomAdapter(courses);
+        CustomAdapter<Course> adapter = new CustomAdapter<Course>(courses);
         recyclerView.setAdapter(adapter);
 
         ItemTouchHelper helper = new ItemTouchHelper(swipeToDelete(adapter));
@@ -55,7 +52,7 @@ public class CoursesFragment extends Fragment {
         super.onDestroyView();
     }
 
-    private ItemTouchHelper.SimpleCallback swipeToDelete(CustomAdapter adapter) {
+    private ItemTouchHelper.SimpleCallback swipeToDelete(CustomAdapter<Course> adapter) {
         return new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
