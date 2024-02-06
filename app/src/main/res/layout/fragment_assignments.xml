@@ -26,16 +26,18 @@
         android:layout_height="32dp"
         android:text="Assignment Title:"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="50dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Title" />
 
     <Button
         android:id="@+id/Assign_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Assignment"
-        tools:layout_editor_absoluteX="121dp"
-        tools:layout_editor_absoluteY="162dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Assignment_class" />
 
     <TextView
         android:id="@+id/Assignment_class"
@@ -43,8 +45,9 @@
         android:layout_height="33dp"
         android:text="Class:"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="117dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Assignment_due" />
 
     <TextView
         android:id="@+id/Assignment_due"
@@ -52,8 +55,9 @@
         android:layout_height="35dp"
         android:text="Assignment Due Date:"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="82dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Assignment_title" />
 
     <TextView
         android:id="@+id/Title"
@@ -62,12 +66,15 @@
         android:text="Upcoming Assignments"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="17dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="373dp"
         android:layout_height="489dp"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="241dp" />
+        android:layout_marginTop="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Assign_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
