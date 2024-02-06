@@ -20,5 +20,9 @@
             android:id="@+id/nav_to_do_list"
             android:icon="@drawable/sharp_add_notes_24"
             android:title="@string/menu_to_do_list" />
+        <item
+            android:id="@+id/nav_notifications"
+            android:icon="@drawable/baseline_add_alarm_24"
+            android:title="@string/menu_notifications" />
     </group>
 </menu>
