@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.example.collegescheduler2.Exam;
 import com.example.collegescheduler2.R;
 import com.example.collegescheduler2.ui.CustomAdapter;

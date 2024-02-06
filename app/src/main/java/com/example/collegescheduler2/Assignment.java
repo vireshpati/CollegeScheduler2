@@ -9,13 +9,13 @@ import java.util.Date;
 
 public class Assignment extends ScheduleItem {
 
-    private Course associatedCourse;
+    private String associatedCourse;
 
     public Assignment(String name, Date date) {
         super(name, date);
     }
 
-    public Assignment(String name, Date date, Course associatedCourse) {
+    public Assignment(String name, Date date, String associatedCourse) {
         this(name, date);
         if (associatedCourse == null) {
             throw new IllegalArgumentException("Assignment must be associated with a course");
@@ -23,11 +23,11 @@ public class Assignment extends ScheduleItem {
         this.associatedCourse = associatedCourse;
     }
 
-    public Course getAssociatedCourse() {
+    public String getAssociatedCourse() {
         return associatedCourse;
     }
 
-    public void setAssociatedCourse(Course associatedCourse) {
+    public void setAssociatedCourse(String associatedCourse) {
         if (associatedCourse == null) {
             throw new IllegalArgumentException("Assignment must be associated with a course");
         }
@@ -37,11 +37,9 @@ public class Assignment extends ScheduleItem {
     @NonNull
     @Override
     public String toString() {
-        return "Assignment{" +
-                "name=" + getName() +
-                ", date=" + getDate() +
-                "associatedCourse=" + associatedCourse +
-                '}';
-    }
+        return "Assignment: " + getName() +
+                "\nAssociated Class: " + associatedCourse +
+                "\nDue Date: " + getDate().toGMTString() +"\n";
+     }
 
 }
