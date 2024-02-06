@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.collegescheduler2.Course;
+import com.example.collegescheduler2.R;
 import com.example.collegescheduler2.databinding.FragmentExamsBinding;
 
 import java.util.ArrayList;
@@ -25,9 +26,10 @@ public class ExamsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         ExamsViewModel examsViewModel = new ViewModelProvider(this).get(ExamsViewModel.class);
+        View view = inflater.inflate(R.layout.fragment_exams, container, false);
 
         Exams = new ArrayList<>();
-        Exams.add(new exam("English", new Date(0, 1, 1), "John"));
+        Exams.add(new Exam("English", new Date(0, 1, 1), "John"));
 
         binding = FragmentExamsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
