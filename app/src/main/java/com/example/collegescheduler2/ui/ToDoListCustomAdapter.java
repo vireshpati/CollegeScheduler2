@@ -13,10 +13,9 @@ import com.example.collegescheduler2.ScheduleItem;
 
 import java.util.ArrayList;
 
-public class CustomAdapter<T extends ScheduleItem> extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
+public class ToDoListCustomAdapter<T extends ScheduleItem> extends RecyclerView.Adapter<ToDoListCustomAdapter.ViewHolder> {
 
     private ArrayList<T> data;
-
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -27,24 +26,31 @@ public class CustomAdapter<T extends ScheduleItem> extends RecyclerView.Adapter<
             super(view);
             textView = view.findViewById(R.id.randomText);
 
+            view.findViewById(R.id.listViewButton).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
+
         }
 
         public TextView getTextView() {
             return textView;
         }
+
     }
 
 
-    public CustomAdapter(ArrayList<T> data) {
+    public ToDoListCustomAdapter(ArrayList<T> data) {
         this.data = data;
     }
-
 
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.frame_textview, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.frame_textview_with_button, viewGroup, false);
         return new ViewHolder(view);
     }
 

@@ -18,6 +18,7 @@ import com.example.collegescheduler2.Course;
 import com.example.collegescheduler2.R;
 import com.example.collegescheduler2.ToDoList;
 import com.example.collegescheduler2.ui.CustomAdapter;
+import com.example.collegescheduler2.ui.ToDoListCustomAdapter;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -26,7 +27,7 @@ import java.util.Date;
 public class ToDoListFragment extends Fragment {
 
     private static ArrayList<ToDoList> toDoLists = new ArrayList<>();
-    private CustomAdapter<ToDoList> adapter;
+    private ToDoListCustomAdapter<ToDoList> adapter;
     private View view;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -37,7 +38,7 @@ public class ToDoListFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        adapter = new CustomAdapter<>(toDoLists);
+        adapter = new ToDoListCustomAdapter<>(toDoLists);
         recyclerView.setAdapter(adapter);
 
         ItemTouchHelper helper1 = new ItemTouchHelper(swipeLeft());
@@ -82,7 +83,6 @@ public class ToDoListFragment extends Fragment {
 
         };
     }
-
 
     private ItemTouchHelper.SimpleCallback swipeRight() {
         return new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
