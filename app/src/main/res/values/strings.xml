@@ -12,4 +12,5 @@
     <string name="menu_exams">Exams</string>
     <string name="menu_to_do_list">To Do Lists</string>
     <string name="menu_notifications">Notifications</string>
+    <string name="addItem">+</string>
 </resources>

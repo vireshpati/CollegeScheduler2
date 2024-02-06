@@ -4,38 +4,53 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-
+import com.example.collegescheduler2.Course;
 import com.example.collegescheduler2.R;
-import com.example.collegescheduler2.databinding.FragmentCoursesBinding;
+import com.example.collegescheduler2.ui.RecyclerViewAction;
 
+import java.util.ArrayList;
 
 public class CoursesFragment extends Fragment {
 
-    private FragmentCoursesBinding binding;
+    private ArrayList<Course> courses;
+    private RecyclerView recyclerView;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.fragment_courses,container,false);
 
-        binding = FragmentCoursesBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-        final TextView textView = binding.textHome;
+        recyclerView = view.findViewById(R.id.recyclerview);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        recyclerView.setAdapter(new RecyclerViewAction());
 
-//        View root = inflater.inflate(R.layout.fragment_courses,container,false);
-//        final TextView textView = root.findViewById(R.id.text_home);
+        return view;
 
-
-        return root;
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }
