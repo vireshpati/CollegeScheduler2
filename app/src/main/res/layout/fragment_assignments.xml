@@ -28,7 +28,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Title" />
+        tools:layout_editor_absoluteY="29dp" />
 
     <Button
         android:id="@+id/Assign_add"
@@ -58,15 +58,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Assignment_title" />
-
-    <TextView
-        android:id="@+id/Title"
-        android:layout_width="201dp"
-        android:layout_height="29dp"
-        android:text="Upcoming Assignments"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="373dp"

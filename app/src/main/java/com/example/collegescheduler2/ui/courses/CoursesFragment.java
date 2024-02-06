@@ -120,7 +120,6 @@ public class CoursesFragment extends Fragment {
                 courses.sort(comparator);
                 adapter.notifyDataSetChanged();
 
-
             }
         };
     }

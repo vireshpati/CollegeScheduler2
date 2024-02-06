@@ -17,4 +17,7 @@
     <string name="course_title">Course Title</string>
     <string name="instructor_name">Instructor Name</string>
     <string name="dd_mm_yyyy_hh_mm_ss">dd/MM/yyyy HH:mm:ss</string>
+    <string name="add_exam">Add Exam</string>
+    <string name="exam_title">Exam Title</string>
+    <string name="exam_location">Exam Location</string>
 </resources>
