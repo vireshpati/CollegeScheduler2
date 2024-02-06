@@ -5,14 +5,15 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class NotificationViewModel extends ViewModel {
-    private final MutableLiveData<String> mText;
+    private MutableLiveData<String> notificationContent = new MutableLiveData<>();
 
-    public NotificationViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is notification fragment");
+    // Method to update notification content
+    public void setNotificationContent(String content) {
+        notificationContent.setValue(content);
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    // LiveData for observing notification content
+    public LiveData<String> getNotificationContent() {
+        return notificationContent;
     }
 }
