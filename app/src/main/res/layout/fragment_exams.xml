@@ -19,4 +19,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Add_Exam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Exam"
+        tools:layout_editor_absoluteX="266dp"
+        tools:layout_editor_absoluteY="36dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="99dp"
+        android:layout_height="50dp"
+        android:text="Name"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="8dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="329dp"
+        android:layout_height="628dp"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="103dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
