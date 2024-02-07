@@ -146,7 +146,7 @@ public class AssignmentsFragment extends Fragment {
 
     private Comparator<Assignment> getComparator() {
         if (sortByClass) {
-            return (a1, a2) -> a1.getName().compareTo(a2.getName());
+            return (a1, a2) -> a1.getAssociatedCourse().compareTo(a2.getAssociatedCourse());
         }
         return Comparator.naturalOrder();
     }

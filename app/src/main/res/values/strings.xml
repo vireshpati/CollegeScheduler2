@@ -33,4 +33,5 @@
     <string name="associated_course">Associated Course</string>
     <string name="sortbydate">SortByDate</string>
     <string name="add_to_list">Add To List</string>
+    <string name="add_reminder">Add Reminder</string>
 </resources>
